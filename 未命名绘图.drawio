@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0" version="27.2.0">
+  <diagram name="第 1 页" id="FJiCnEpLyMi7cOoUcQPQ">
+    <mxGraphModel dx="1418" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bFFfEugv8EOGHekhlQ7B-1" value="1. 什么是handle？什么是fd" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="620" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bFFfEugv8EOGHekhlQ7B-2" value="2. 为什么不用共享内存传递handle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="740" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bFFfEugv8EOGHekhlQ7B-3" value="3. 为什么普通的ip socket无法传递fd，必须是unix domain socket？" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="860" width="200" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
