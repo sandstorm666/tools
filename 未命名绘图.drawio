@@ -1,17 +1,84 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0" version="27.2.0">
   <diagram name="第 1 页" id="FJiCnEpLyMi7cOoUcQPQ">
-    <mxGraphModel dx="1418" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2245" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="bFFfEugv8EOGHekhlQ7B-1" value="1. 什么是handle？什么是fd" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="140" y="620" width="200" height="60" as="geometry" />
+          <mxGeometry x="-260" y="80" width="200" height="60" as="geometry" />
         </mxCell>
         <mxCell id="bFFfEugv8EOGHekhlQ7B-2" value="2. 为什么不用共享内存传递handle" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="140" y="740" width="200" height="60" as="geometry" />
+          <mxGeometry x="-260" y="167" width="200" height="60" as="geometry" />
         </mxCell>
         <mxCell id="bFFfEugv8EOGHekhlQ7B-3" value="3. 为什么普通的ip socket无法传递fd，必须是unix domain socket？" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="140" y="860" width="200" height="60" as="geometry" />
+          <mxGeometry x="-260" y="262" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="160" width="730" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-2" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;ipc planA&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="620" y="20" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-4" value="这套方案也是最容易想到的，由kmd维护一个全局的idr表。&lt;div&gt;&lt;font style=&quot;&quot;&gt;&lt;font&gt;老版本的hip和cuda应该都是这套方案&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="500" y="70" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-5" value="hipIpcGetMemHandle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="414" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-6" value="kmd通过idr生成一个全局的handle比如0x12asdasdqw，将handle和buffer object对应起来" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="414" y="555" width="116" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-18" value="kmd" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="394" y="500" width="706" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-19" value="hipIpcOpenMemHandle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="180" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-20" value="hipIpcCloseMemHandle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="180" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-21" value="umd生成一个map记录下va和handle的对应，后续close会用到" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="418" y="400" width="116" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-22" value="umd" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="340" width="704" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-23" value="..." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="682" y="400" width="116" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-25" value="进程可以通过ip socket得到这个handle地址" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="605" y="287" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-26" value="4. 区分一下ip socket 和unix domain socket。" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-260" y="370" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-27" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.244;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0W82W-cxKZl_hD_0DXCm-6" target="0W82W-cxKZl_hD_0DXCm-25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="500" as="sourcePoint" />
+            <mxPoint x="530" y="450" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-28" value="查找idr表，通过0x12asdasdqw查找到对应的bo,得到地址。解析bo做gpu mmu映射，同时增加bo的引用计数" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="682" y="560" width="116" height="97.5" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-30" value="&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;ncc使用ip socket传递handle，这个通用性肯定更好。共享内存也可以。&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;但是共享内存的name除非定义为全局的，也需要传递。而且共享内存不够健壮。&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="173" width="420" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-33" value="hipIpcCloseMemHandle的形参是va，通过va查找到handle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="400" width="148" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-34" value="查找idr表，通过0x12asdasdqw查找到对应的bo,unmap并且减少引用计数" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="936" y="560" width="116" height="97.5" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-35" value="核心在于kmd层维护了一个handle和bo的对应表,handle是我们驱动分配的。&lt;div&gt;所以使用ip socket发送没什么问题，A进程发送什么，B进程就会收到什么，对于global的idr表，都能查找到。&lt;/div&gt;&lt;div&gt;&lt;b&gt;重点是其他设备无法使用这个handle，比如rdma网卡，硬盘。&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="465" y="710" width="600" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-36" value="handle是我们驱动给的标识，fd是linux系统给的标识" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="95" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-37" value="ip socket通信只能做到发什么收什么，&lt;div&gt;但是fd不行，不同进程之间对应同一个file的fd可能是不一样的&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="272" width="350" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
