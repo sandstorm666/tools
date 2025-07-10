@@ -134,8 +134,8 @@
         <mxCell id="0W82W-cxKZl_hD_0DXCm-68" value="hipMemImportFromShareableHandle：将fd代表的buffer导入" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2950" y="180" width="260" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="0W82W-cxKZl_hD_0DXCm-79" value="等待UDS service，" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1715" y="695" width="200" height="80" as="geometry" />
+        <mxCell id="0W82W-cxKZl_hD_0DXCm-79" value="等待UDS service返回fd" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1715" y="690" width="200" height="30" as="geometry" />
         </mxCell>
         <mxCell id="0W82W-cxKZl_hD_0DXCm-81" value="这里为什么要保证唯一？" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="1270" y="468.75" width="160" height="30" as="geometry" />
@@ -145,6 +145,9 @@
         </mxCell>
         <mxCell id="0W82W-cxKZl_hD_0DXCm-83" value="重点在于这个poll，这个poll代表此时并不是3次握手的TCP连接，&lt;div&gt;而是UDP连接。UDP通信效率更高&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="3325" y="730" width="370" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="warGRd3cG--YaNDSNdKP-1" value="使用import通过fd导入buffer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1715" y="760" width="200" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
